@@ -98,28 +98,52 @@ addKeyAndValue(
 console.log("-----------------");
 
 // 5
-function vowelCount(aString) {
-  vowels = "aeiou".split("");
-  anObject = {};
-  aString = aString.toLowerCase();
+// function vowelCount(aString) {
+//   vowels = "aeiou".split("");
+//   anObject = {};
+//   aString = aString.toLowerCase();
 
-  vowels.forEach((vowel) => {
-    if (aString.split(vowel).length - 1 > 0)
-      anObject[vowel] = aString.split(vowel).length - 1;
+//   vowels.forEach((vowel) => {
+//     if (aString.split(vowel).length - 1 > 0)
+//       anObject[vowel] = aString.split(vowel).length - 1;
+//   });
+//   return anObject;
+// }
+
+// console.log(
+//   "Q5:",
+//   'vowelCount("Elie"):',
+//   vowelCount("Elie"),
+//   "Tim: ",
+//   vowelCount("Tim"),
+//   "Matt: ",
+//   vowelCount("Matt"),
+//   "hmmm: ",
+//   vowelCount("hmmm"),
+//   "I Am awesome and so are you!:",
+//   vowelCount("I Am awesome and so are you")
+// );
+
+function vowelCount(string) {
+  const stringFixed = string.toLowerCase();
+
+  const arrFromString = [...stringFixed];
+
+  const vowels = "aeiou";
+  const returnedVowels = {};
+
+  arrFromString.forEach((letter) => {
+    if (vowels.includes(letter)) {
+      if (returnedVowels[letter] === undefined) {
+        returnedVowels[letter] = 1;
+      } else {
+        returnedVowels[letter] += 1;
+      }
+    }
   });
-  return anObject;
+
+  console.log(returnedVowels);
+  return returnedVowels;
 }
 
-console.log(
-  "Q5:",
-  'vowelCount("Elie"):',
-  vowelCount("Elie"),
-  "Tim: ",
-  vowelCount("Tim"),
-  "Matt: ",
-  vowelCount("Matt"),
-  "hmmm: ",
-  vowelCount("hmmm"),
-  "I Am awesome and so are you!:",
-  vowelCount("I Am awesome and so are you")
-);
+vowelCount("Elie");
